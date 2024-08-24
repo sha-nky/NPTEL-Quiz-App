@@ -1,36 +1,24 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 
-import { getAllTestimonials } from "./api/apiCalls";
+import { Navbar, Footer } from "./Components"
+import { Quiz } from "./Pages"
+
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
-
-  const [testimonials, setTestimonials] = useState([]);
-
-  useEffect(() => {
-    const fetchTestimonials = async () => {
-      // setLoading(true);
-      const data = await getAllTestimonials();
-      if (data.error) {
-        // setError(true);
-        console.log(data.error)
-      } else {
-        setTestimonials(data);
-        console.log(data);
-        // animationDurationRef.current = data.length * 3.5;
-      }
-      // setLoading(false);
-    };
-
-    fetchTestimonials();
-  }, []);
-
-
   return (
-    <div>
-      <div>
-        something
-      </div>
-    </div>
+    <>
+      <BrowserRouter>
+        <ToastContainer />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Quiz />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </>
   )
 }
 

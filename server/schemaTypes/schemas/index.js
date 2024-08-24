@@ -1,9 +1,7 @@
 //Importing all Schemas
-
-import Testimonials from './Testimonials'
-
+import Questions from './Questions'
 
 //Exporting all Schemas
-export {Testimonials}
+export {Questions}
 
 //This is file is meant for imports only
